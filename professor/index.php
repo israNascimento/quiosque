@@ -2,8 +2,8 @@
     require_once("../config/header.php");
     require_once("../config/user.php");
 
-    if(temUsuario()) { ?>
-        <h1>Ola, <?=usuario()?></h1>
+    if(hasUser()) { ?>
+        <h1>Ola, <?=getUserName()?> <a href="logout.php">Logout</a></h1>
 <?php
     } else { ?>
         <h1>Bem vindo professor</h1>

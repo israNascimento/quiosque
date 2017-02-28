@@ -1,16 +1,16 @@
 <?php
     session_start();
 
-    function login($matricula) {
-        $_SESSION['matricula'] = $matricula;
+    function login($name) {
+        $_SESSION['name'] = $name;
     }
 
-    function temUsuario() {
-        return isset($_SESSION['matricula']);
+    function hasUser() {
+        return isset($_SESSION['name']);
     }
 
-    function usuario() {
-        return $_SESSION['matricula'];
+    function getUserName() {
+        return $_SESSION['name'];
     }
 
     function logout() {
