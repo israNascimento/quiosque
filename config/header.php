@@ -5,6 +5,7 @@
         require_once("../class/".$className.".php");
     });
     require_once("../config/connect.php");
+    require_once("../config/user.php");
 ?>
     <header>
         <title>Quiosque</title>
@@ -22,7 +23,7 @@
         			</div>
         			<div>
         				<ul class="nav navbar-nav">
-        					<li><a href="produto-formulario.php">Notas</a></li>
+        					<li><a href="nota.php">Notas</a></li>
         					<li><a href="produto-lista.php">Arquivos</a></li>
         					<li><a href="contato.php">Aulas</a></li>
         				</ul>

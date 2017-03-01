@@ -9,8 +9,8 @@
 
     if($professor != null) {
         header("Location: index.php");
-        login($professor['nome']);
-        $_SESSION['sucess'] = "Usuario ".$professor['nome'].' logado';
+        login($professor->getNome(), $professor->getId());
+        $_SESSION['sucess'] = "Usuario ".$professor->getNome().' logado';
         die();
     } else {
         $_SESSION['error'] = "Erro na validação";
