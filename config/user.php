@@ -10,6 +10,14 @@
         return isset($_SESSION['name']) && isset($_SESSION['id']);
     }
 
+    function checkUser() {
+        if(!hasUser()) {
+            $_SESSION['error'] = "Faça login antes de acessar";
+            header("Location: index.php");
+            die();
+        }
+    }
+
     function getUserId() {
         return $_SESSION['id'];
     }

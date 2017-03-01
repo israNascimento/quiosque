@@ -24,7 +24,7 @@
         			<div>
         				<ul class="nav navbar-nav">
         					<li><a href="nota.php">Notas</a></li>
-        					<li><a href="produto-lista.php">Arquivos</a></li>
+        					<li><a href="arquivos.php">Arquivos</a></li>
         					<li><a href="contato.php">Aulas</a></li>
         				</ul>
         			</div>
