@@ -11,7 +11,7 @@
                 $select = "selected=selected";
                 $selected = $turma;
             }?>
-            <option value="<?=$turma->getId()?>" <?=$select?>><?=$turma->getCodigo()?> - <?=$turma->getNome()?></option>
+            <option value="<?=$turma->getId()?>" <?=$select?>><?=$turma->getId()?> <?=$turma->getCodigo()?> - <?=$turma->getNome()?></option>
     <?php }
         if(!isset($_POST['select'])) {
             $selected = reset($turmas);

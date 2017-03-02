@@ -19,13 +19,20 @@ class ProfessorDAO {
         return $professor;
     }
 
+    function createTurma($item) {
+        $turma = new Turma($item['disciplina_id'], $item['disciplina_nome'],
+            $item['codigo'], $_SESSION['name']);
+        return $turma;
+    }
+
     function getTurmas($profId) {
         $query = "select t.*,
             d.nome disciplina_nome, d.id discipina_id, d.codigo,
             a.*
             from turmas as t
             join disciplinas as d on t.disciplina_id = d.id
-            join alunos as a on t.aluno_id=a.id where t.professor_id=1
+            join alunos as a on t.aluno_id=a.id
+            where t.professor_id={$profId}
             order by t.disciplina_id";
         $result = mysqli_query($this->con, $query);
         $turmas = array();
@@ -43,15 +50,11 @@ class ProfessorDAO {
 
             if($lastDisciplina !== $current['disciplina_id']) {
                 if($lastDisciplina == 0) {
-                    $turma = new Turma($current['disciplina_id'],
-                        $current['disciplina_nome'], $current['codigo']);
+                    $turma = $this->createTurma($current);
                 } else {
                     $turma->setAlunos($alunos);
                     array_push($turmas, $turma);
-
-                    $turma = new Turma($current['disciplina_id'],
-                        $current['disciplina_nome'], $current['codigo']);
-
+                    $turma = $this->createTurma($current);
                     unset($alunos);
                     $alunos = array();
                 }
@@ -61,14 +64,14 @@ class ProfessorDAO {
             array_push($alunos, $aluno);
 
             if($i == $len -1) {
-                $turma = new Turma($current['disciplina_id'],
-                    $current['disciplina_nome'], $current['codigo']);
-                    $turma->setAlunos($alunos);
-                    array_push($turmas, $turma);
+                $turma = $this->createTurma($current);
+                $turma->setAlunos($alunos);
+                array_push($turmas, $turma);
             }
             $i++;
         }
         return $turmas;
     }
+
 
 }

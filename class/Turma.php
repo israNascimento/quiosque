@@ -6,10 +6,11 @@
         private $professor;
         private $alunos;
 
-        function __construct($id, $nome, $codigo) {
+        function __construct($id, $nome, $codigo, $professor) {
             $this->id = $id;
             $this->nome = $nome;
             $this->codigo = $codigo;
+            $this->professor = $professor;
         }
 
         function getNome() {
