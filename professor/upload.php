@@ -12,7 +12,7 @@
             $selected = $turma;
         }
     }
-    $target_dir = "../uploads/".$selected->getId()."/".$_SESSION['id'];
+    $target_dir = "../arquivos/".$selected->getId()."/".$_SESSION['id'];
     if(!file_exists($target_dir)) {
         mkdir($target_dir, 0777, true);
     }
@@ -20,8 +20,7 @@
     $uploadOk = 1;
 
     if (file_exists($target_file)) {
-        echo "Arquivo ja existente";
-        die();
+        die("Arquivo ja existe");
     }
     if ($uploadOk == 0) {
         echo "Sorry, your file was not uploaded.";
